@@ -1,0 +1,35 @@
+.child-accordian-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+.title-container {
+  display: flex;
+}
+
+.toggle-button {
+  position: absolute;
+  right: 0;
+}
+
+button {
+  font-size: 1em;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.content-container.open {
+  max-height: 200px;
+}
+
+.content-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
