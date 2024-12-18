@@ -1,10 +1,11 @@
+import React from "react";
 import { useState } from "react";
 import Accordian from "./components/Accordian";
 import holidayDestinations from "./data";
 import "./App.css";
 
 function App() {
-  const [allowMultipleOpen, setAllowMultipleOpen] = useState(false);
+  const [allowMultipleOpen, setAllowMultipleOpen] = useState(true);
   const [activeAccordians, setActiveAccordians] = useState(new Set());
 
   const handleCheckboxChange = () => {
