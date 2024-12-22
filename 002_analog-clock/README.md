@@ -1,8 +1,13 @@
-# React + Vite
+# CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+100vw (viewport width): Represents 100% of the width of the viewport (the visible area of the browser window).
 
-Currently, two official plugins are available:
+100vh (viewport height): Represents 100% of the height of the viewport.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+box-shadow: h-offset v-offset blur spread color inset;
+transform: translateY(-3px)- The negative sign (-) indicates movement upward. If the value were positive (e.g., translateY(3px)), the element would move downward.
+
+transition: all 0.05s;
+all: Applies the transition to all animatable properties (e.g., transform, background-color, opacity, etc.).
+0.05s: Sets the duration of the transition to 0.05 seconds (50 milliseconds).
+EXPLANATION: For example, if you rotate the clock hands using transform: rotate(...), the hands will "move" smoothly to their new position instead of jumping there immediately.
