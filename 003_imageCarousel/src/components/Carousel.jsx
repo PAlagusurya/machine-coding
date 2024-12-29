@@ -7,6 +7,14 @@ import "./Carousel.css";
 const Carousel = ({ data }) => {
   const [activeImageIdx, setActiveImageIdx] = useState(0);
 
+  setTimeout(() => {
+    const timerId = setActiveImageIdx((activeImageIdx + 1) % data.length);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [5000]);
+
   const handlePrevious = () => {
     setActiveImageIdx(
       activeImageIdx === 0 ? data.length - 1 : activeImageIdx - 1
