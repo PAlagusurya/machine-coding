@@ -1,0 +1,24 @@
+{
+  "wallpapers": [
+    {
+      "id": 1,
+      "url": "https://wallpapers.com/images/high/random-pictures-ugouhhnlc2oe689b.webp",
+      "alt": "Butterfly"
+    },
+    {
+      "id": 2,
+      "url": "https://wallpapers.com/images/high/breathtaking-panorama-of-majestic-mountains-b3gxkftkudo3epqs.webp",
+      "alt": "Rose"
+    },
+    {
+      "id": 3,
+      "url": "https://wallpapers.com/images/high/random-pictures-xraaaalzrxwviea2.webp",
+      "alt": "Teddy"
+    },
+    {
+      "id": 4,
+      "url": "https://wallpapers.com/images/hd/a-haven-of-tranquility-experience-the-serenity-of-blue-aesthetic-ix6ibo629zjfqj2e.webp",
+      "alt": "Window"
+    }
+  ]
+}
