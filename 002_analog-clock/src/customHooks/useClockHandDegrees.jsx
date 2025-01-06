@@ -6,6 +6,7 @@ const useClockHandDegrees = () => {
   useEffect(() => {
     const timerId = setInterval(() => setTime(new Date()), 1000);
 
+    // When the component unmounts, the clearInterval function stops the interval to avoid memory leaks.
     return () => {
       clearInterval(timerId);
     };
