@@ -17,11 +17,13 @@ const initialItems = [
   id: `${item}-${Date.now()}`,
   text: item,
   isEditing: false,
+  completed: false,
 }));
 
 const TodoList = () => {
   const [todoItems, setTodoItems] = useState(initialItems);
   const [currentTodo, setCurrentTodo] = useState("");
+  const [filter, setFilter] = useState("All");
 
   const addTodoItem = (value) => {
     setTodoItems((items) => [
@@ -30,6 +32,7 @@ const TodoList = () => {
         id: `${value}-${Date.now()}`,
         text: value,
         isEditing: false,
+        completed: false,
       },
     ]);
   };
@@ -71,6 +74,24 @@ const TodoList = () => {
     //setTodoItems(todoItems?.filter((item) => item.id != todoId));
   };
 
+  const filteredTodos = () => {
+    if (filter === "Active") {
+      return todoItems.filter((item) => !item.completed);
+    } else if (filter === "Completed") {
+      return todoItems.filter((item) => item.completed);
+    }
+
+    return todoItems;
+  };
+
+  const handleToggle = (todoId) => {
+    setTodoItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === todoId.id ? { ...item, completed: !item.completed } : item
+      )
+    );
+  };
+
   return (
     <div className="container">
       <form id="todo-form" onSubmit={handleSubmit}>
@@ -79,12 +100,13 @@ const TodoList = () => {
           id="todo-input"
           type="text"
           autoComplete="off"
+          placeholder="Add a new todo..."
           value={currentTodo}
           onChange={handleChange}
         />
       </form>
       <ul className="list-container" id="listContainer">
-        {todoItems.map((item) => (
+        {filteredTodos().map((item) => (
           <li key={item.id}>
             {item.isEditing ? (
               <input
@@ -94,7 +116,15 @@ const TodoList = () => {
                 onChange={(e) => handleUpdate(item, e)}
               />
             ) : (
-              <span>{item.text}</span>
+              <span
+                onClick={() => handleToggle(item)}
+                style={{
+                  textDecoration: item.completed ? "line-through" : "none",
+                  cursor: "pointer",
+                }}
+              >
+                {item.text}
+              </span>
             )}
             {/* React automatically binds the event object to the function, making e available as the first argument. */}
 
@@ -111,6 +141,11 @@ const TodoList = () => {
       {todoItems.length === 0 && (
         <div className="no-item">Oops! There are no todos to display.</div>
       )}
+      <div>
+        <button onClick={() => setFilter("All")}>All</button>
+        <button onClick={() => setFilter("Active")}>Active</button>
+        <button onClick={() => setFilter("Completed")}>Completed</button>
+      </div>
     </div>
   );
 };
