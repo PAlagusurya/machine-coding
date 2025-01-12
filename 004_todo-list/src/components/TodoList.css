@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+#todo-input {
+  padding: 16px;
+  font-size: 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 1rem 0;
+  width: 80%;
+}
+
+.list-container {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-container li {
+  margin-top: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-container li .text {
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.list-container li .edit-todo {
+  border: none;
+  outline: none;
+}
+
+.no-item {
+  color: #666;
+  margin-top: 20px;
+  font-size: larger;
+  display: none;
+}
+
+button {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+button.edit {
+  background-color: orange;
+  color: white;
+}
+
+button.delete {
+  background-color: red;
+  color: white;
+}
+
+.list-container:empty + .no-item {
+  display: block;
+}
+
+.filter-button {
+  margin-top: 2rem;
+}
+
+.filter-button button {
+  background-color: green;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+}

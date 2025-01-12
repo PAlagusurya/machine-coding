@@ -110,6 +110,7 @@ const TodoList = () => {
           <li key={item.id}>
             {item.isEditing ? (
               <input
+                className="edit-todo"
                 key={item.id}
                 type="text"
                 value={item.text}
@@ -117,6 +118,7 @@ const TodoList = () => {
               />
             ) : (
               <span
+                className="text"
                 onClick={() => handleToggle(item)}
                 style={{
                   textDecoration: item.completed ? "line-through" : "none",
@@ -128,24 +130,25 @@ const TodoList = () => {
             )}
             {/* React automatically binds the event object to the function, making e available as the first argument. */}
 
-            <button onClick={() => handleEdit(item.id)}>
+            <button onClick={() => handleEdit(item.id)} className="edit">
               {item.isEditing ? <MdOutlineSave /> : <MdOutlineEdit />}
             </button>
             {/* If your handler expects anything other than the event object, you need to explicitly pass it using an arrow function or a similar approach. */}
-            <button onClick={() => handleDelete(item.id)}>
+            <button onClick={() => handleDelete(item.id)} className="delete">
               <AiFillDelete />
             </button>
           </li>
         ))}
       </ul>
-      {todoItems.length === 0 && (
+      {todoItems.length === 0 ? (
         <div className="no-item">Oops! There are no todos to display.</div>
+      ) : (
+        <div className="filter-button">
+          <button onClick={() => setFilter("All")}>All</button>
+          <button onClick={() => setFilter("Active")}>Active</button>
+          <button onClick={() => setFilter("Completed")}>Completed</button>
+        </div>
       )}
-      <div>
-        <button onClick={() => setFilter("All")}>All</button>
-        <button onClick={() => setFilter("Active")}>Active</button>
-        <button onClick={() => setFilter("Completed")}>Completed</button>
-      </div>
     </div>
   );
 };
